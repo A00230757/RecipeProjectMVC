@@ -15,7 +15,7 @@ namespace RecipeProjectMVC.Data
             // Look for any students.
             if (context.Recipe.Any())
             {
-                return;   // DB has been seeded
+                return;   // DB has been seede
             }
 
             var recipe = new Recipe[]
