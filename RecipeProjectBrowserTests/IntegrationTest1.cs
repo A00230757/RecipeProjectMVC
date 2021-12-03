@@ -10,7 +10,7 @@ using WebDriverManager.DriverConfigs.Impl;
 namespace RecipeProjectBrowserTests
 {
     [TestClass]
-    public class UnitTest1
+    public class IntegrationTest1
     {
         private IWebDriver _webDriver;
 
