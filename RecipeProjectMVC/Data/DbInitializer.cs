@@ -21,11 +21,11 @@ namespace RecipeProjectMVC.Data
             var recipe = new Recipe[]
             {
             new Recipe{RecipeId=1,Name="chicken",FoodCategory="Non veg",Title="ch",Description="ds" ,
-                PrepTime =DateTime.Parse("2005-09-01"),CookTime=DateTime.Parse("2005-09-01"),
+                PrepTime ="01",CookTime="01",
             Ingredients="ds",Tools="ds",CookingSteps="ds",Photo1="ds",Photo2="ds",
             Photo3="ds",Ranking="ds"},
              new Recipe{RecipeId=2,Name="fish",FoodCategory="Non veg",Title="ch",Description="ds" ,
-                PrepTime =DateTime.Parse("2005-09-01"),CookTime=DateTime.Parse("2005-09-01"),
+                PrepTime ="01",CookTime="01",
             Ingredients="ds",Tools="ds",CookingSteps="ds",Photo1="ds",Photo2="ds",
             Photo3="ds",Ranking="ds"},
             };

@@ -14,8 +14,8 @@ namespace RecipeProjectMVC.Models
         public string FoodCategory { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public DateTime PrepTime { get; set; }
-        public DateTime CookTime { get; set; }
+        public string PrepTime { get; set; }
+        public string CookTime { get; set; }
         public string Ingredients { get; set; }
         public string Tools { get; set; }
         public string CookingSteps { get; set; }
@@ -24,5 +24,8 @@ namespace RecipeProjectMVC.Models
 
         public string Photo3 { get; set; }
         public string Ranking { get; set; }
+
+
+       
     }
 }
