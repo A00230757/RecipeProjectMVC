@@ -65,13 +65,25 @@ namespace RecipeProjectBrowserTests
             Assert.AreEqual("Details - Recipe Project", _webDriver.Title);
             Console.WriteLine(_webDriver.Title);
         }
+
         [TestMethod]
         public void TitleTestOfHomeRecipePage()
         {
-            _webDriver.Navigate().GoToUrl("https://localhost:5001/");
+            _webDriver.Navigate().GoToUrl("https://localhost:5001/Recipes/Home");
             Assert.IsTrue(_webDriver.Title.Contains("Home Page - Recipe Project"));
             Assert.AreEqual("Home Page - Recipe Project", _webDriver.Title);
         }
+
+
+        [TestMethod]
+        public void TestWebApiStringLength()
+        {
+            _webDriver.Navigate().GoToUrl("https://localhost:5001/ViewRecipe");
+            /* Assert.IsTrue(_webDriver.Title.Contains("Home Page - Recipe Project"));
+             Assert.AreEqual("Home Page - Recipe Project", _webDriver.Title);*/
+            Console.WriteLine(_webDriver.Title);
+        }
+
         [TestCleanup]
         public void Teardown()
         {

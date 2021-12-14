@@ -3,10 +3,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RecipeProjectMVC.Data;
 using RecipeProjectMVC.Models;
+using RecipeProjectClassLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace RecipeProjectWebAPI.Controllers
 {
@@ -27,6 +29,8 @@ namespace RecipeProjectWebAPI.Controllers
         public string ViewRecipeList()
         {
             Task<List<Recipe>> task = _context.Recipe.ToListAsync();
+            //Task<List<Recipe>> task = AddRecipeTasks.ViewRecipeList();
+            string json = JsonConvert.SerializeObject(task.Result);
 
             int count = task.Result.Count;
             string s = "";
@@ -50,12 +54,12 @@ namespace RecipeProjectWebAPI.Controllers
                 s = s + "----------------------------------------------@";
                 s = s.Replace("@", " " + System.Environment.NewLine);
             }
+            s = s + "----------------length------------------------------@"+count;
 
 
 
 
-
-            return s;
+            return json;
         }
 
     }
