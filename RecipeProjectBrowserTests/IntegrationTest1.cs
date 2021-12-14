@@ -76,12 +76,24 @@ namespace RecipeProjectBrowserTests
 
 
         [TestMethod]
-        public void TestWebApiStringLength()
+        public void TestWebApiOpenViewRecipe()
         {
             _webDriver.Navigate().GoToUrl("https://localhost:5001/ViewRecipe");
             /* Assert.IsTrue(_webDriver.Title.Contains("Home Page - Recipe Project"));
              Assert.AreEqual("Home Page - Recipe Project", _webDriver.Title);*/
-            Console.WriteLine(_webDriver.Title);
+            IWebElement element = _webDriver.FindElement(By.LinkText("RecipeId"));
+            element.Click();
+            Console.WriteLine(_webDriver.FindElements(By.TagName("RecipeId")));
+        }
+
+
+        [TestMethod]
+        public void TestWebApiJsonData()
+        {
+            _webDriver.Navigate().GoToUrl("https://localhost:5001/SearchRecipe?recipeid=3");
+            /* Assert.IsTrue(_webDriver.Title.Contains("Home Page - Recipe Project"));
+             Assert.AreEqual("Home Page - Recipe Project", _webDriver.Title);*/
+         
         }
 
         [TestCleanup]
