@@ -156,6 +156,51 @@ namespace RecipeProjectBrowserTests
             Assert.IsTrue(true);
         }
 
+        [TestMethod]
+        public void TestAddRecipe()
+        {
+            _webDriver.Navigate().GoToUrl("https://localhost:5001/Recipes/Create");
+            var searchBox1 = _webDriver.FindElement(By.Name("Name"));
+            searchBox1.SendKeys("Fish Recipe");
+            var searchBox2 = _webDriver.FindElement(By.Name("FoodCategory"));
+            searchBox2.SendKeys("non veg");
+            var searchBox3 = _webDriver.FindElement(By.Name("Title"));
+            searchBox3.SendKeys("Fish Prepare Recipe");
+            var searchBox4 = _webDriver.FindElement(By.Name("Description"));
+            searchBox4.SendKeys("How to prepare fish");
+            var searchBox5 = _webDriver.FindElement(By.Name("PrepTime"));
+            searchBox5.SendKeys("20 minutes");
+            var searchBox6 = _webDriver.FindElement(By.Name("CookTime"));
+            searchBox6.SendKeys("15 minutes");
+            var searchBox7 = _webDriver.FindElement(By.Name("Ingredients"));
+            searchBox7.SendKeys("different kind of ingredients");
+            var searchBox8 = _webDriver.FindElement(By.Name("Tools"));
+            searchBox8.SendKeys("cooking device");
+            var searchBox9 = _webDriver.FindElement(By.Name("CookingSteps"));
+            searchBox9.SendKeys("take 5-6 steps");
+            var searchBox10 = _webDriver.FindElement(By.Name("Photo1"));
+            searchBox10.SendKeys("photo1 of fish recipe");
+            var searchBox11 = _webDriver.FindElement(By.Name("Photo2"));
+            searchBox11.SendKeys("photo2 of fish recipe");
+            var searchBox12 = _webDriver.FindElement(By.Name("Photo3"));
+            searchBox12.SendKeys("photo 3 of fish recipe");
+            var searchBox13 = _webDriver.FindElement(By.Name("Ranking"));
+            searchBox13.SendKeys("ranking of fish recipe");
+            var submit = _webDriver.FindElement(By.CssSelector("input[type='submit'][name='btnK']"));
+            submit.Click();
+            Assert.IsTrue(true);
+        }
+
+
+        [TestMethod]
+        public void TestDeleteRecipe()
+        {
+            _webDriver.Navigate().GoToUrl("https://localhost:5001/Recipes/Delete/6");
+
+            var submit = _webDriver.FindElement(By.CssSelector("input[type='submit'][name='btnK']"));
+            submit.Click();
+            Assert.IsTrue(true);
+        }
 
         [TestCleanup]
         public void Teardown()
