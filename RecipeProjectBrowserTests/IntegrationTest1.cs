@@ -125,9 +125,9 @@ namespace RecipeProjectBrowserTests
         {
             _webDriver.Navigate().GoToUrl("https://localhost:5001/UserComments/Create");
             var searchBox1 = _webDriver.FindElement(By.Name("commentTitle"));
-            searchBox1.SendKeys("Hello");
+            searchBox1.SendKeys("Recipe details feedback");
             var searchBox2 = _webDriver.FindElement(By.Name("CommentDetail"));
-            searchBox2.SendKeys("Hi");
+            searchBox2.SendKeys("all the details are very helpful");
             var submit = _webDriver.FindElement(By.CssSelector("input[type='submit'][name='btnK']"));
             submit.Click();
             Assert.IsTrue(true);
@@ -138,6 +138,19 @@ namespace RecipeProjectBrowserTests
         {
             _webDriver.Navigate().GoToUrl("https://localhost:5001/UserComments/Delete/1");
            
+            var submit = _webDriver.FindElement(By.CssSelector("input[type='submit'][name='btnK']"));
+            submit.Click();
+            Assert.IsTrue(true);
+        }
+
+        [TestMethod]
+        public void TestEditUserComments()
+        {
+            _webDriver.Navigate().GoToUrl("https://localhost:5001/UserComments/Edit/4");
+            var searchBox1 = _webDriver.FindElement(By.Name("commentTitle"));
+            searchBox1.SendKeys("Recipe details feedback");
+            var searchBox2 = _webDriver.FindElement(By.Name("CommentDetail"));
+            searchBox2.SendKeys("all the details are very helpful but prep time is more");
             var submit = _webDriver.FindElement(By.CssSelector("input[type='submit'][name='btnK']"));
             submit.Click();
             Assert.IsTrue(true);
