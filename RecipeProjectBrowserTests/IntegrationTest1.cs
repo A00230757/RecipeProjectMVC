@@ -120,6 +120,18 @@ namespace RecipeProjectBrowserTests
 
         }
 
+        [TestMethod]
+        public void TestAddUserComments()
+        {
+            _webDriver.Navigate().GoToUrl("https://localhost:5001/UserComments/Create");
+            var searchBox1 = _webDriver.FindElement(By.Name("commentTitle"));
+            searchBox1.SendKeys("Hello");
+            var searchBox2 = _webDriver.FindElement(By.Name("CommentDetail"));
+            searchBox2.SendKeys("Hi");
+            var submit = _webDriver.FindElement(By.CssSelector("input[type='submit'][name='btnK']"));
+            submit.Click();
+            Assert.IsTrue(true);
+        }
 
 
         [TestCleanup]

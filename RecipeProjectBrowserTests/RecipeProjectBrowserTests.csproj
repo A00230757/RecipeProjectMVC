@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\RecipeProjectMVC\RecipeProjectMVC.csproj" />
     <ProjectReference Include="..\RecipeProjectWebAPI\RecipeProjectWebAPI.csproj" />
   </ItemGroup>
 
