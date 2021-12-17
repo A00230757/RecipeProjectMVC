@@ -133,6 +133,16 @@ namespace RecipeProjectBrowserTests
             Assert.IsTrue(true);
         }
 
+        [TestMethod]
+        public void TestDeleteUserComments()
+        {
+            _webDriver.Navigate().GoToUrl("https://localhost:5001/UserComments/Delete/1");
+           
+            var submit = _webDriver.FindElement(By.CssSelector("input[type='submit'][name='btnK']"));
+            submit.Click();
+            Assert.IsTrue(true);
+        }
+
 
         [TestCleanup]
         public void Teardown()
