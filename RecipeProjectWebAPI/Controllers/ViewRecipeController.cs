@@ -30,7 +30,7 @@ namespace RecipeProjectWebAPI.Controllers
         {
             Task<List<Recipe>> task = _context.Recipe.ToListAsync();
             //Task<List<Recipe>> task = AddRecipeTasks.ViewRecipeList();
-            string json = JsonConvert.SerializeObject(task.Result);
+           
 
             int count = task.Result.Count;
             string s = "";
@@ -56,7 +56,7 @@ namespace RecipeProjectWebAPI.Controllers
             }
             s = s + "----------------length------------------------------@"+count;
 
-
+            string json = JsonConvert.SerializeObject(task.Result);
 
 
             return json;

@@ -74,6 +74,15 @@ namespace RecipeProjectBrowserTests
             Assert.AreEqual("Home Page - Recipe Project", _webDriver.Title);
         }
 
+        [TestMethod]
+        public void TestWebApiTitle()
+
+        {
+            _webDriver.Navigate().GoToUrl("https://localhost:5001/Swagger/index.html");
+            Assert.IsTrue(_webDriver.Title.Contains("Swagger UI"));
+           Assert.AreEqual("Swagger UI", _webDriver.Title);
+            
+        }
 
         [TestMethod]
         public void TestWebApiOpenViewRecipe()
@@ -81,20 +90,37 @@ namespace RecipeProjectBrowserTests
             _webDriver.Navigate().GoToUrl("https://localhost:5001/ViewRecipe");
             /* Assert.IsTrue(_webDriver.Title.Contains("Home Page - Recipe Project"));
              Assert.AreEqual("Home Page - Recipe Project", _webDriver.Title);*/
-            IWebElement element = _webDriver.FindElement(By.LinkText("RecipeId"));
-            element.Click();
-            Console.WriteLine(_webDriver.FindElements(By.TagName("RecipeId")));
+            /* IWebElement element = _webDriver.FindElement(By.LinkText("RecipeId"));
+             element.Click();
+             Console.WriteLine(_webDriver.FindElements(By.TagName("RecipeId")));*/
+            var s = _webDriver.PageSource;
+            var pos1 = s.IndexOf("{");
+            var pos2 = s.IndexOf("}");
+            string json = s.Substring(pos1, pos2);
+            Console.WriteLine(json);
+            Console.WriteLine(s);
+            // return json;
         }
 
 
         [TestMethod]
-        public void TestWebApiJsonData()
+        public void TestWebApiSearchRecipeJsonData()
+
         {
             _webDriver.Navigate().GoToUrl("https://localhost:5001/SearchRecipe?recipeid=3");
-            /* Assert.IsTrue(_webDriver.Title.Contains("Home Page - Recipe Project"));
-             Assert.AreEqual("Home Page - Recipe Project", _webDriver.Title);*/
-         
+            
+            //Assert.IsTrue(_webDriver.PageSource.Contains(n));
+            /*  Assert.AreEqual("Home Page - Recipe Project", _webDriver.Title);*/
+            var output = "<html><head></head><body><pre style=\"word-wrap: break-word; white-space: pre-wrap;\">{\"RecipeId\":3,\"Name\":\"d\",\"FoodCategory\":\"d\",\"Title\":\"d\",\"Description\":\"d\",\"PrepTime\":\"d\",\"CookTime\":\"d\",\"Ingredients\":\"d\",\"Tools\":\"d\",\"CookingSteps\":\"d\",\"Photo1\":\"d\",\"Photo2\":\"d\",\"Photo3\":\"d\",\"Ranking\":\"d\"}</pre></body></html>";
+
+             Assert.AreEqual(output, _webDriver.PageSource);
+            Console.WriteLine(output);
+            Console.WriteLine(_webDriver.PageSource);
+
+
         }
+
+
 
         [TestCleanup]
         public void Teardown()
